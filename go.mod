@@ -1,4 +1,4 @@
-module xuuid
+module github.com/weppos/xuuid
 
 go 1.25.4
 
