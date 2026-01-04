@@ -23,3 +23,6 @@ jobs:
 
     - name: Test compilation
       run: ./xuuid --help
+
+    - name: Test flags
+      run: ./test.sh
