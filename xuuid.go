@@ -19,6 +19,7 @@ func main() {
 	sha1Flag := flag.Bool("sha1", false, "Generate SHA1-based UUID")
 	count := flag.Int("count", 1, "Number of UUIDs to generate")
 	hexFlag := flag.Bool("hex", false, "Output UUIDs as 32-char hex (no dashes)")
+	urnFlag := flag.Bool("urn", false, "Output UUIDs in urn:uuid: format")
 
 	// Custom usage banner
 	flag.Usage = func() {
@@ -70,7 +71,9 @@ func main() {
 			fmt.Fprintf(os.Stderr, "Error generating UUID: %v\n", err)
 			os.Exit(1)
 		}
-		if *hexFlag {
+		if *urnFlag {
+			fmt.Println(id.URN())
+		} else if *hexFlag {
 			fmt.Println(hex.EncodeToString(id[:]))
 		} else {
 			fmt.Println(id.String())

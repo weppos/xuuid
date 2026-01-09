@@ -57,6 +57,14 @@ xuuid --hex
 # 018f123456787890abcdef1234567890
 ```
 
+Generate a UUID v7 as a URN:
+
+```bash
+xuuid --urn
+
+# urn:uuid:018f1234-5678-7890-abcd-ef1234567890
+```
+
 Show all available flags:
 
 ```shell
