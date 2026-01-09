@@ -49,6 +49,14 @@ xuuid --count 2
 # 018f1235-5678-7890-abcd-ef1234567891
 ```
 
+Generate a UUID v7 in hex (no dashes):
+
+```bash
+xuuid --hex
+
+# 018f123456787890abcdef1234567890
+```
+
 Show all available flags:
 
 ```shell

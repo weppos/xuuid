@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/hex"
 	"flag"
 	"fmt"
 	"os"
@@ -17,6 +18,7 @@ func main() {
 	md5Flag := flag.Bool("md5", false, "Generate MD5-based UUID")
 	sha1Flag := flag.Bool("sha1", false, "Generate SHA1-based UUID")
 	count := flag.Int("count", 1, "Number of UUIDs to generate")
+	hexFlag := flag.Bool("hex", false, "Output UUIDs as 32-char hex (no dashes)")
 
 	// Custom usage banner
 	flag.Usage = func() {
@@ -68,6 +70,10 @@ func main() {
 			fmt.Fprintf(os.Stderr, "Error generating UUID: %v\n", err)
 			os.Exit(1)
 		}
-		fmt.Println(id.String())
+		if *hexFlag {
+			fmt.Println(hex.EncodeToString(id[:]))
+		} else {
+			fmt.Println(id.String())
+		}
 	}
 }
