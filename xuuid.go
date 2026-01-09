@@ -17,7 +17,7 @@ func main() {
 	v4Flag := flag.Bool("v4", false, "Generate UUID v4")
 	md5Flag := flag.Bool("md5", false, "Generate MD5-based UUID")
 	sha1Flag := flag.Bool("sha1", false, "Generate SHA1-based UUID")
-	count := flag.Int("count", 1, "Number of UUIDs to generate")
+	countFlag := flag.Int("count", 1, "Number of UUIDs to generate")
 	hexFlag := flag.Bool("hex", false, "Output UUIDs as 32-char hex (no dashes)")
 	urnFlag := flag.Bool("urn", false, "Output UUIDs in urn:uuid: format")
 
@@ -65,7 +65,7 @@ func main() {
 	}
 
 	// Generate UUID(s)
-	for i := 0; i < *count; i++ {
+	for i := 0; i < *countFlag; i++ {
 		id, err := generateFunc()
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Error generating UUID: %v\n", err)
